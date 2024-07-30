@@ -6,11 +6,11 @@ export type VerificationParams = {
 export type GetUsersByFiltersParams = {
   userIds?: string[];
   phones?: string[];
-  logins?: string[];
+  login?: string;
 };
 
 export type GetUsersResponse = {
-  item: Account[];
+  items: Account[];
   total: number;
 };
 
