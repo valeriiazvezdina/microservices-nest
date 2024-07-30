@@ -1,0 +1,13 @@
+version: '4.32.0'
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: account-db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    container_name: book-db-postgres
+    ports: ['5133:5432']
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
+    restart: unless-stopped
