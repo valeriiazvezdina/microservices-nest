@@ -21,7 +21,9 @@ export class AuthService {
     const isPasswordCorrect =
       await this.internalAccountService.verification(params);
 
-    if (!isPasswordCorrect) throw new UnauthorizedException();
+    if (!isPasswordCorrect) {
+      throw new UnauthorizedException();
+    }
 
     const users = await this.internalAccountService.getUsersByFilter({
       login: params.login,
@@ -56,9 +58,9 @@ export class AuthService {
     try {
       jwtPayload = this.jwtService.verify(params.refresh, {
         secret: this.config.get('JWT_REFRESH_SECRET'),
-        algorithms: this.config.get('JWT_ALG'),
+        algorithms: [this.config.get('JWT_ALG')],
       });
-    } catch (err: unknown) {
+    } catch (error: unknown) {
       throw new UnauthorizedException();
     }
 
@@ -68,7 +70,9 @@ export class AuthService {
       },
     );
 
-    if (users.length) throw new NotFoundException('User not found');
+    if (users.length) {
+      throw new NotFoundException('user not found');
+    }
 
     const payload = { login: users[0].login, userId: users[0].userId };
 

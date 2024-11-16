@@ -2,7 +2,7 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import {
-  GetUsersByFiltersParams,
+  GetUsersByFiltersParam,
   GetUsersResponse,
   VerificationParams,
 } from './account.types';
@@ -22,9 +22,9 @@ export class InternalAccountService {
   }
 
   async getUsersByFilter(
-    params: GetUsersByFiltersParams,
+    params: GetUsersByFiltersParam,
   ): Promise<GetUsersResponse> {
-    const url = `${this.config.get('ACCOUNT_URL')}/v1/user`;
+    const url = `${this.config.get('ACCOUNT_URL')}/v1/user/`;
     const res = await this.httpService.axiosRef.get(url, { params });
 
     return res.data;

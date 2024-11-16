@@ -13,7 +13,7 @@ export class AuthController {
   }
 
   @Post('refresh/token')
-  refreshToken(@Body() dto: RefreshJwtDto): Promise<JwtDto> {
+  refreshToken(@Body() dto: RefreshJwtDto): Promise<RefreshJwtDto> {
     return this.authService.refreshToken(dto);
   }
 }

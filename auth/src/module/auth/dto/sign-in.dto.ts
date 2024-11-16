@@ -3,20 +3,20 @@ import { IsNotEmpty, IsString } from 'class-validator';
 
 export class SignInDto {
   @ApiProperty({
-    description: 'Login',
+    description: 'login',
     type: String,
     required: true,
   })
-  @IsNotEmpty({ message: 'Must be not empty' })
-  @IsString({ message: 'Must be a string' })
+  @IsNotEmpty({ message: 'must be filled' })
+  @IsString({ message: 'must be a string' })
   readonly login: string;
 
   @ApiProperty({
-    description: 'Password',
+    description: 'password',
     type: String,
     required: true,
   })
-  @IsNotEmpty({ message: 'Must be not empty' })
-  @IsString({ message: 'Must be a string' })
+  @IsNotEmpty({ message: 'must be filled' })
+  @IsString({ message: 'must be a string' })
   readonly password: string;
 }

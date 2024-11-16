@@ -2,14 +2,14 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class JwtDto {
   @ApiProperty({
-    description: 'JWT access',
+    description: 'access JWT',
     type: String,
     required: true,
   })
   access: string;
 
   @ApiProperty({
-    description: 'JWT refresh',
+    description: 'refresh JWT',
     type: String,
     required: true,
   })
@@ -18,7 +18,7 @@ export class JwtDto {
 
 export class RefreshJwtDto {
   @ApiProperty({
-    description: 'JWT refresh',
+    description: 'refresh JWT',
     type: String,
     required: true,
   })
