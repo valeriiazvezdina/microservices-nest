@@ -8,4 +8,4 @@ import { InternalAccountService } from './account.service';
   providers: [InternalAccountService],
   exports: [InternalAccountService],
 })
-export class AccountModule {}
+export class InternalAccountModule {}
